@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI-Powered Group Discussion Platform
 
 A comprehensive platform that allows users to practice group discussions and interview simulations using a combination of real participants and AI-powered bots.
@@ -223,3 +224,6 @@ For support and questions, please contact: support@nexorainfotech.tech
 - [ ] Advanced AI personas
 - [ ] Whiteboard collaboration
 - [ ] Session recording and playback
+=======
+# AI-Group-Discussion-Platform
+>>>>>>> 495932699d907839e08d5d12df1a17bc48d917e1
