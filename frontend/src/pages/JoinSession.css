@@ -1,0 +1,168 @@
+/* Join Session Styles */
+.join-session {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.join-session-container {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.session-info h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 2.5rem;
+}
+
+.session-description {
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.session-details {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.detail-value {
+  color: #666;
+  text-align: right;
+  flex: 1;
+  margin-left: 20px;
+}
+
+.status-scheduled {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.status-active {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.status-completed {
+  color: #6c757d;
+  font-weight: 600;
+}
+
+.status-cancelled {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.participants-list {
+  margin-bottom: 30px;
+}
+
+.participants-list h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.participants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.participant {
+  background: #667eea;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error-page {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.join-actions {
+  text-align: center;
+}
+
+.auth-required {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.auth-required p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.join-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .join-session-container {
+    padding: 20px;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .detail-value {
+    text-align: left;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  
+  .join-buttons {
+    flex-direction: column;
+  }
+}
