@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_CONFIG from '../config/api';
 import { useAuth } from '../contexts/AuthContext';
 import './Dashboard.css';
 
@@ -30,7 +31,7 @@ const Dashboard: React.FC = () => {
 
   const fetchSessions = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/sessions/my-sessions');
+      const response = await axios.get(`${API_CONFIG.baseURL}/api/sessions/my-sessions`);
       setSessions(response.data);
     } catch (err: any) {
       setError('Failed to fetch sessions');

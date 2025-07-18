@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_CONFIG from '../config/api';
 import { useAuth } from '../contexts/AuthContext';
 import './JoinSession.css';
 
@@ -38,7 +39,7 @@ const JoinSession: React.FC = () => {
 
   const fetchSession = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/sessions/join/${shareLink}`);
+      const response = await axios.get(`${API_CONFIG.baseURL}/api/sessions/join/${shareLink}`);
       setSession(response.data);
     } catch (err: any) {
       setError(err.response?.data?.message || 'Session not found');
@@ -57,7 +58,7 @@ const JoinSession: React.FC = () => {
     setError('');
 
     try {
-      await axios.post(`http://localhost:5000/api/sessions/join/${shareLink}`);
+      await axios.post(`${API_CONFIG.baseURL}/api/sessions/join/${shareLink}`);
       navigate(`/session/${session?._id}`);
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to join session');

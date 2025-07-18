@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+import API_CONFIG from '../config/api';
 
 class AudioService {
   private getAuthHeaders() {
@@ -19,7 +18,7 @@ class AudioService {
       formData.append('audio', audioBlob, 'recording.webm');
 
       const response = await axios.post(
-        `${API_BASE_URL}/api/audio/upload`,
+        `${API_CONFIG.baseURL}/api/audio/upload`,
         formData,
         this.getAuthHeaders()
       );
@@ -37,7 +36,7 @@ class AudioService {
       formData.append('audio', audioBlob, 'recording.webm');
 
       const response = await axios.post(
-        `${API_BASE_URL}/api/audio/transcribe`,
+        `${API_CONFIG.baseURL}/api/audio/transcribe`,
         formData,
         this.getAuthHeaders()
       );
@@ -53,7 +52,7 @@ class AudioService {
     try {
       const token = localStorage.getItem('token');
       await axios.delete(
-        `${API_BASE_URL}/api/audio/file/${filename}`,
+        `${API_CONFIG.baseURL}/api/audio/file/${filename}`,
         {
           headers: {
             'Authorization': `Bearer ${token}`
@@ -67,7 +66,7 @@ class AudioService {
   }
 
   getAudioUrl(filename: string): string {
-    return `${API_BASE_URL}/api/audio/file/${filename}`;
+    return `${API_CONFIG.baseURL}/api/audio/file/${filename}`;
   }
 }
 

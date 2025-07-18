@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_CONFIG from '../config/api';
 import './Analysis.css';
 
 interface AnalysisData {
@@ -53,7 +54,7 @@ const Analysis: React.FC = () => {
   const fetchAnalysis = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:5000/api/analysis/${sessionId}`);
+      const response = await axios.get(`${API_CONFIG.baseURL}/api/analysis/${sessionId}`);
       setAnalysis(response.data);
       setLoading(false);
     } catch (err: any) {
@@ -72,7 +73,7 @@ const Analysis: React.FC = () => {
       setLoading(true);
       
       // First, fetch session data
-      const sessionResponse = await axios.get(`http://localhost:5000/api/sessions/${sessionId}`);
+      const sessionResponse = await axios.get(`${API_CONFIG.baseURL}/api/sessions/${sessionId}`);
       const session = sessionResponse.data;
       
       // Prepare participants data from session - handle both real and AI participants
@@ -119,7 +120,7 @@ const Analysis: React.FC = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:5000/api/analysis/generate/${sessionId}`,
+        `${API_CONFIG.baseURL}/api/analysis/generate/${sessionId}`,
         analysisData
       );
       

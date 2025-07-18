@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import io, { Socket } from 'socket.io-client';
+import API_CONFIG from '../config/api';
 import { useAuth } from './AuthContext';
 
 interface SocketContextType {
@@ -28,18 +29,14 @@ export const SocketProvider: React.FC<SocketProviderProps> = ({ children }) => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      const newSocket = io('http://localhost:5000');
-      
+        const newSocket = io(API_CONFIG.socketURL);
       newSocket.on('connect', () => {
         setIsConnected(true);
       });
-      
       newSocket.on('disconnect', () => {
         setIsConnected(false);
       });
-      
       setSocket(newSocket);
-      
       return () => {
         newSocket.close();
       };

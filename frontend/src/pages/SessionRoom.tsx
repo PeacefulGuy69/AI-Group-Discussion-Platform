@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_CONFIG from '../config/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useSocket } from '../contexts/SocketContext';
 import { useAudioRecording } from '../hooks/useAudioRecording';
@@ -192,7 +193,7 @@ const SessionRoom: React.FC = () => {
 
   const fetchSession = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/sessions/${sessionId}`);
+      const response = await axios.get(`${API_CONFIG.baseURL}/api/sessions/${sessionId}`);
       setSession(response.data);
       
       // Always set up AI participants when session loads
@@ -201,7 +202,7 @@ const SessionRoom: React.FC = () => {
       // First, try to get the actual bot names from the backend
       if (response.data.aiParticipants > 0) {
         try {
-          const botsResponse = await axios.get(`http://localhost:5000/api/ai-bots/bots/${sessionId}`);
+          const botsResponse = await axios.get(`${API_CONFIG.baseURL}/api/ai-bots/bots/${sessionId}`);
           if (botsResponse.data.success && botsResponse.data.bots.length > 0) {
             // Use actual bot names from backend
             botsResponse.data.bots.forEach((bot: any, index: number) => {
@@ -361,7 +362,7 @@ const SessionRoom: React.FC = () => {
     try {
       setEndingSession(true);
       // End the session
-      await axios.post(`http://localhost:5000/api/sessions/${sessionId}/end`);
+      await axios.post(`${API_CONFIG.baseURL}/api/sessions/${sessionId}/end`);
       
       // Navigate to analysis page (it will handle generation if needed)
       navigate(`/analysis/${sessionId}`);

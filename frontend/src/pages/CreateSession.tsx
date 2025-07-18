@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import API_CONFIG from '../config/api';
 import './CreateSession.css';
 
 const CreateSession: React.FC = () => {
@@ -34,7 +35,7 @@ const CreateSession: React.FC = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/sessions/create', formData);
+      const response = await axios.post(`${API_CONFIG.baseURL}/api/sessions/create`, formData);
       navigate('/dashboard');
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to create session');
