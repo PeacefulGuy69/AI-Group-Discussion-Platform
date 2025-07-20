@@ -21,10 +21,10 @@ npm install
 
 Create `.env` file:
 ```env
-PORT=5001
-MONGODB_URI=mongodb://localhost:27017/aigd
+PORT=5000
+MONGODB_URI=mongo db conection uri
 JWT_SECRET=your-secret-key-here
-GEMINI_API_KEY=AIzaSyBYHL_oZMqp-92oe4pELFr1DcVA08ATdOg
+GEMINI_API_KEY=Gemini api key
 ```
 
 Start backend:
