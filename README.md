@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # AI-Powered Group Discussion Platform
 
 A comprehensive platform that allows users to practice group discussions and interview simulations using a combination of real participants and AI-powered bots.
@@ -67,9 +66,9 @@ npm install
 3. Create a `.env` file with the following variables:
 ```
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/aigd
+MONGODB_URI=mongo db conection uri
 JWT_SECRET=your-secret-key-here
-GEMINI_API_KEY=AIzaSyBYHL_oZMqp-92oe4pELFr1DcVA08ATdOg
+GEMINI_API_KEY=Gemini api key
 ```
 
 4. Start the development server:
